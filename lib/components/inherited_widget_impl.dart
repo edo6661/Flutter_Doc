@@ -1,4 +1,4 @@
-import 'package:docs/state%20management/sharing%20state%20betwen%20widgets/2%20inherited%20widget.dart';
+import 'package:docs/state_management/sharing_state_betwen_widgets/2%20inherited%20widget.dart';
 import 'package:flutter/material.dart';
 
 class InheritedWidgetImpl extends StatelessWidget {

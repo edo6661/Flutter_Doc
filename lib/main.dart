@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -31,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 3,
+        length: 2,
         child: Scaffold(
             appBar: AppBar(
               backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -39,14 +40,11 @@ class _MyHomePageState extends State<MyHomePage> {
               bottom: const TabBar(tabs: [
                 Tab(text: "State"),
                 Tab(text: "User Input"),
-                Tab(text: "Networking"),
               ]),
             ),
             body: TabBarView(children: [
               const StateScreen(),
-              // TODO: REPLACE
-              const UserInputScreen(),
-              const Text("USER INPUT"),
+              UserInputScreen(),
             ]),
             floatingActionButton: FloatingActionButton(
               onPressed: _incrementCounter,

@@ -10,8 +10,8 @@
 analyzer:
   errors:
     file_names: ignore
-    unused_element: ignore ignore ignore ignore
-    use_key_in_widget_constructors: ignore ignore ignore
+    unused_element: ignore
+    use_key_in_widget_constructors: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:
