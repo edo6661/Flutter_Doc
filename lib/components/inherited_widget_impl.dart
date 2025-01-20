@@ -6,6 +6,7 @@ class InheritedWidgetImpl extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(InheritWidget.of(context).data);
+    var data = InheritWidget.of(context).data;
+    return Text(data);
   }
 }

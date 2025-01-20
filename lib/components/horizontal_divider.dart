@@ -5,6 +5,7 @@ class HorizontalDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ! container ga nge dukung const
     return Container(height: 1, color: Theme.of(context).colorScheme.primary);
   }
 }

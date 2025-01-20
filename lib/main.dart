@@ -1,10 +1,6 @@
-import 'package:docs/components/horizontal_divider.dart';
-import 'package:docs/components/inherited_widget_impl.dart';
-import 'package:docs/components/title.dart';
-import 'package:docs/state%20management/1%20stateful_widget.dart';
-import 'package:docs/state%20management/sharing%20state%20betwen%20widgets/1%20widget%20constructor.dart';
-import 'package:docs/state%20management/sharing%20state%20betwen%20widgets/2%20inherited%20widget.dart';
-import 'package:docs/widgets/1%20padded_text_stateless.dart';
+import 'package:docs/screens/root/state_screen.dart';
+import 'package:docs/screens/root/user_input_screen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,58 +24,35 @@ class MyApp extends StatelessWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Column(
-            spacing: 12,
-            children: <Widget>[
-              Column(
-                children: [
-                  const PaddedText(),
-                  const StatefulWidgetImpl(),
-                ],
-              ),
-              // ! container ga nge dukung const
-              HorizontalDivider(),
-              MainTitle(title: "Sharing State"),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  WidgetConstructor(count: _counter),
-                  ElevatedButton(
-                      onPressed: _incrementCounter, child: Text("Increment")),
-                  WidgetConstructor(count: _counter),
-                ],
-              ),
-              HorizontalDivider(),
-              MainTitle(title: "Inherit Widget"),
-
-              InheritWidget(
-                  data: "data yang didapet dari parent",
-                  child: const InheritedWidgetImpl()),
-            ],
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _incrementCounter,
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ));
+    return DefaultTabController(
+        length: 3,
+        child: Scaffold(
+            appBar: AppBar(
+              backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+              title: Text(widget.title),
+              bottom: const TabBar(tabs: [
+                Tab(text: "State"),
+                Tab(text: "User Input"),
+                Tab(text: "Networking"),
+              ]),
+            ),
+            body: TabBarView(children: [
+              const StateScreen(),
+              // TODO: REPLACE
+              const UserInputScreen(),
+              const Text("USER INPUT"),
+            ]),
+            floatingActionButton: FloatingActionButton(
+              onPressed: _incrementCounter,
+              tooltip: 'Increment',
+              child: const Icon(Icons.add),
+            )));
   }
 }
 
